@@ -1,0 +1,134 @@
+body {
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+.container {
+    /* max-width: 90%; */
+    /* width: 100%; */
+    /* margin: auto; */
+    padding: 20px;
+    
+}
+
+section{
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(168, 119, 29)
+}
+
+
+p{
+    color: rgb(173, 136, 67)
+}
+
+.cards{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+   /* align-items: center; */
+   /* justify-content: space-between;  */
+}
+
+.card{
+    flex: 0 0 calc(33.33% - 20px); 
+    /* max-width: calc(33.33%)-20px; */
+    /* width: 100%; */
+    background: rgb(26, 23, 23);
+    border-radius: 10px;
+    /* padding: 20px; */
+    margin-bottom: 20px;
+    /* transition: .3s; */
+    border: 2px solid transparent;
+}
+
+hr{
+    width: 80%;
+    border: 1px solid #855806
+}
+
+card:hover{
+    border-color: #1d39c4;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    background: #855806;
+    color: rgb(26, 23, 23);
+    border-radius: 10px;
+    max-width: 120px;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.spa-img{
+    width: 100%;
+    /* object-fit: contain; */
+}
+
+.btn:hover{
+    background: rgb(75, 63, 63);
+    color: white
+}
+
+h3{
+   color: rgb(173, 136, 67);
+   
+}
+
+h2{
+    color: rgb(173, 136, 67);
+    font-family:cursive;
+    
+    /* width: 50%; */
+}
+
+.spa-package {
+    display: flex;
+    align-items: center;
+}
+  
+.spa-package-border{
+    border-bottom: 2px solid #583b04;
+    width: 100%;
+    display: flex
+  }
+  
+.spa-package-content {
+    flex: 0 0 20%;
+    background: rgb(26, 23, 23);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+img{
+    height: 45vh
+}
+
+@media(max-width: 969px){
+    section{
+        padding: 20px 0px;
+    }
+    h1{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .card{
+        flex: 0 0 calc(50% - 20px);
+        max-width:  calc(50% - 20px);
+    }
+}
+
+@media(max-width: 600px){
+    .card{
+        flex: 0 0 100%;
+        max-width:  100%;
+    }
+}

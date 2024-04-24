@@ -1,0 +1,37 @@
+.footer-wrapper {
+    background-color: rgb(26, 23, 23);
+    padding: 10px;
+}
+
+.footer-item {
+    color: orange;
+    font-weight: 400;
+}
+
+.social{
+    margin: 1vw;
+    color: white;
+}
+
+.social-container{
+    margin-top: 3vw;
+}
+
+.copyright{
+    color: white;
+    font-weight: 400;
+}
+
+.google-map {
+    /* padding-bottom: 50%; */
+    /* position: relative; */
+    padding: 20px;
+}
+
+.google-map iframe {
+    height: 25rem;
+    width: 100%;
+    left: 0;
+    /* top: 0; */
+    /* position: absolute; */
+}
