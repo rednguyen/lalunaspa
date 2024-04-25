@@ -30,7 +30,7 @@ const NavBar = () => {
                 </a>
             </div>
             <div className='menu'>
-            
+{/*             
                 <div className='menuItem-logo'>
                     <a href="/" className='logo'><img src={Logo} style={{height: 100, width: 100}}/></a>
                 </div>
@@ -38,27 +38,35 @@ const NavBar = () => {
                 <div className='menuItem-wrapper'>
                     {NavigationItems.sidebar.map(item => (
                     <a className='menuItem' href={item.to}>{item.name}</a>    
-                ))}</div>
-            
-            </div>
-            {
-            !openProfile && <FiAlignJustify className='dropdown-menu-icon' onClick={() => setOpenProfile((prev) => !prev)}/>
-            }
+                ))}</div> */}
 
-            {
-            openProfile && <FiXSquare className='dropdown-menu-icon' onClick={() => setOpenProfile((prev) => !prev)}/>
-            }
-                {
-          openProfile && <div className='dropdown-menu'> 
-          <ul>
-            <a className='dropdown-menu-item' href="/">Home</a>
-            <a className='dropdown-menu-item' href="/#about-us">About Us</a>
-            <a className='dropdown-menu-item' href="/#amazon-fba">Amazon FBA</a>
-            <a className='dropdown-menu-item' href="/mission">Our Services</a>
-            <a className='dropdown-menu-item' href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3TmuHenV034sbXh7XMwuxDntCnvzGrf1v3IBgKHOaHidbY4ClPAmZMWJttVOYk2nx_bIRJrAIa?pli=1">Contact</a>
-            </ul>       
+                <div className='dropdown'>
+                    {
+                    !openProfile && <FiAlignJustify className='dropdown-menu-icon' onClick={() => setOpenProfile((prev) => !prev)}/>
+                    }
+
+                    {
+                    openProfile && <FiXSquare className='dropdown-menu-icon' onClick={() => setOpenProfile((prev) => !prev)}/>
+                    }
+                    {
+                    openProfile && <div className='dropdown-menu'> 
+                        {
+                            NavigationItems.sidebar.map(item => (
+                                <a className='dropdown-menu-item' href={item.to}>{item.name}</a>
+                            ))
+                        }
+                        <hr></hr>
+                        <a href="/" className='logo'><img src={Logo} style={{height: 100, width: 100}}/></a>  
+                        {NavigationItems.footer.map(item => (
+                        <h4 className="footer-item">{item.addr}</h4>
+                        ))}
+                    </div>
+                    }
+                    
+                </div>
             </div>
-            }
+           
+            
             
         </div>
 
