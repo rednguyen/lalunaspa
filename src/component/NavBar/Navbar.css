@@ -21,7 +21,7 @@
 
 
 .menuItem:hover{
-    background-color: aliceblue;
+    background-color: rgb(88, 66, 24)
 }
 
 .menuItem-wrapper {
@@ -49,6 +49,11 @@
     max-height: 50px;
 }
 
+.social-navbar{
+    color: rgb(26, 23, 23);
+    margin: 1vw;
+}
+
 .dropdown-menu-item{
     display: block;
     text-decoration: none;
@@ -57,7 +62,7 @@
     font-size: 1.3rem;
     font-weight: 800;
     margin-bottom: 3px;
-    padding: 5px;
+    
 }
 
 
@@ -66,11 +71,14 @@
 }
 
 .dropdown{
-    display: flex;
     flex-direction: column;
     flex-grow: 1;
+    display: none;
 }
 
+.dropdown-logo{
+    /* flex-grow: 1; */
+}
 
 .dropdown-menu-icon{
     color: rgb(172, 121, 27);
@@ -78,8 +86,28 @@
 }
 
 .dropdown-menu{
-    padding: 1rem;
+    padding: 1rem 0;
     background-color: rgb(172, 121, 27);
-    text-align: left;
+    /* text-align: left; */
     width: 100%;
+    text-align: center;
+}
+
+.dropdown-footer{
+    background-color: rgb(26, 23, 23);
+    padding: 1rem 0;
+}
+
+@media(max-width: 969px){
+    .menuItem-logo{
+        display: none;
+    }
+
+    .menuItem-wrapper{
+        display: none;
+    }
+
+    .dropdown{
+        display: flex;
+    }
 }
