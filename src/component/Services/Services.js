@@ -1,10 +1,15 @@
 import "./Services.css"
-import Spa from '../asset/spa1.png'
 import SpaPackages from "../config/spa-packages"
-import Child from "../asset/child.png"
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import About from "../About/About";
+import Booking from "../Booking/Booking";
+import React, {useState} from "react";
+
 const baseImg = "../asset/child.png"
 
 const Services = () => {
+    
     return (
         <div>
             <section>
@@ -24,17 +29,23 @@ const Services = () => {
                                 <div className="cards">
                                     {
                                         result.packageDetail.map(resultDetail => (
-                                            <div className="card">
+                                        <div className="card">
                                             <img className="spa-img" src={require(`../asset/${resultDetail.img}`)}/>
                                             <h3>{resultDetail.title}</h3>
                                             <p>
                                                 {resultDetail.content}
                                             </p>
-                                            <hr></hr>
+                                            <hr className="divider"></hr>
                                             <p>{resultDetail.time}</p>
                                             <p>{resultDetail.price}</p>
-                                            <button className="btn">BOOK NOW</button>
-                                    </div>  
+
+                                            <a href={'/booking/' + result.id + '/' + resultDetail.id + '/' + resultDetail.title}>
+                                                <button className="btn">
+                                                    BOOK NOW 
+                                                </button>
+                                            </a>
+                                            
+                                        </div>  
                                         ))
                                     }
                                     

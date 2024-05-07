@@ -7,6 +7,8 @@ import Services from './component/Services/Services';
 import Feedback from './component/Feedback/Feedback';
 import Training from './component/Training/Training';
 import Footer from './component/Footer/Footer';
+import Booking from './component/Booking/Booking';
+
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
           </Routes>
           <Routes>
             <Route exact path="/training" element={<Training/>}/>
+          </Routes>
+          <Routes>
+            <Route exact path="/booking/:packageId/:packageDetailId/:packageName" element={<Booking/>}/>
           </Routes>
         </div>
         <Footer/>

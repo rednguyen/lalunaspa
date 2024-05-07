@@ -44,7 +44,7 @@ p{
     border: 2px solid transparent;
 }
 
-hr{
+.hr{
     width: 80%;
     border: 1px solid #855806
 }
@@ -79,12 +79,11 @@ card:hover{
 }
 
 h3{
-   color: rgb(173, 136, 67);
-   
+   color:  rgb(172, 121, 27);;
 }
 
 h2{
-    color: rgb(173, 136, 67);
+    color: rgb(172, 121, 27);;
     font-family:cursive;
     
     /* width: 50%; */
@@ -111,6 +110,12 @@ h2{
 img{
     height: 45vh
 }
+
+.modal{
+    background-color: #1d39c4;
+    padding: 0 !important;
+}
+
 
 @media(max-width: 969px){
     section{
