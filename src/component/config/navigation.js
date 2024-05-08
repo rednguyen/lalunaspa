@@ -29,7 +29,7 @@ const NavigationItems = {
     footer : [
         {addr: "Hotline: + 84 2353 666 678"},
         {addr: "info@lalunahoian.com"},
-        {addr: "Luna Spa Hoi An: 12 Nguyen Du, Minh An, Hoi An, Vietnam"}
+        {addr: "12 Nguyen Du, Minh An, Hoi An, Vietnam"}
     ]
 }
 

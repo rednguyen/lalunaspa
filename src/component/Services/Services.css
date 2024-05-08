@@ -54,7 +54,7 @@ card:hover{
 }
 
 .btn{
-    border: none;
+    /* border: none; */
     outline: none;
     background: #855806;
     color: rgb(26, 23, 23);

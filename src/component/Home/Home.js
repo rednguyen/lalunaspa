@@ -1,5 +1,11 @@
+import "./Home.css"
+import Booking from "../Booking/Booking";
+import Services from "../Services/Services";
+
 const Home = () => {
-    return <h1>Welcome to Home Page</h1>
+    return (
+        <Services/>
+    )
 }
 
 export default Home;
