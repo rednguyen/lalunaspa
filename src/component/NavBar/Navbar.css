@@ -7,6 +7,11 @@
     align-items: center;
 }
 
+.logo{
+    width: 150px;
+    height: 150px;
+}
+
 .menuItem {
     margin: 1vw;
     text-decoration: none;
@@ -41,7 +46,7 @@
 }
 
 .social-wrapper{
-    background: rgb(173, 136, 67);
+    background: rgb(172, 121, 27);
     display: flex;
     /* flex-direction: column; */
     justify-content: right;

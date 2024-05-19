@@ -32,7 +32,7 @@ const NavBar = () => {
             <div className='menu'>
             
                 <div className='menuItem-logo'>
-                    <a href="/" className='logo'><img src={Logo} style={{height: 100, width: 100}}/></a>
+                    <a href="/" className='logo'><img className='logo' src={Logo}/></a>
                 </div>
                 
                 <div className='menuItem-wrapper'>
@@ -44,7 +44,7 @@ const NavBar = () => {
                     
                     {
                     !openProfile && <div>
-                    <a href="/" className='logo dropdown-logo'><img src={Logo} style={{height: 100, width: 100}}/></a>
+                    <a href="/" className='dropdown-logo'><img className='logo' src={Logo}/></a>
                     </div>
                     }
                  
@@ -73,7 +73,7 @@ const NavBar = () => {
                         }
                         
                         <div className='dropdown-footer'>
-                            <a href="/" className='logo'><img src={Logo} style={{height: 100, width: 100}}/></a>  
+                            <a href="/"><img className='logo' src={Logo}/></a>  
                             {NavigationItems.footer.map(item => (
                             <h4 className="footer-item">{item.addr}</h4>
                             ))}

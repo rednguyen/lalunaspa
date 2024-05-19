@@ -1,21 +1,16 @@
-import "./Booking.css"
-import SpaPackages from "../config/spa-packages"
-import { useParams } from "react-router-dom"
-import Datetime from 'react-datetime'
+import "./Contact.css"
 import React, { useEffect, useState } from "react"
 import "react-datetime/css/react-datetime.css";
+import Logo from '../asset/Laluna-Logo.png';
 import emailjs from '@emailjs/browser';
 
 
-function Booking()  {
-    let spaPackageID = useParams();
-    let packageID=spaPackageID.packageId;
-    let packageDetailID=spaPackageID.packageDetailId;
-    let packageDetail = SpaPackages.packages[packageID].packageDetail[packageDetailID];
+function Contact()  {
+   
     let [isSubmitted, setIsSubmitted] = useState(false);
-    let [formErrors, setFormErrors] = useState({firstName: "", lastName: "", email: "", datetime: "", request: ""});
+    let [formErrors, setFormErrors] = useState({firstName: "", lastName: "", email: "", subject: "", request: ""});
     
-    const initialValues = {firstName: "", lastName: "", email: "", datetime: "", request: ""} 
+    const initialValues = {firstName: "", lastName: "", email: "", subject: "", request: ""} 
     const [formInfo, setFormInfo] = useState(initialValues);
     let [isLoading, setIsLoading] = useState(false);
 
@@ -34,65 +29,35 @@ function Booking()  {
         setFormErrors(validate(formInfo)) 
     }
 
-    const sendEmailtoClient = () => {
+    const sendEmailtoSpa = () => {
         const serviceID = 'service_v6su3qq';
-        const templateID = 'template_za99pzb';
+        const templateID = 'template_v83je9k';
         const publicKey = 'zDKZrYnWzPbV1QAH7';
 
         const templateParams = {
-            packageDetail: packageDetail.title,
-            time: packageDetail.time,
             name: formInfo.firstName + ' ' + formInfo.lastName,
             email: formInfo.email,
-            datetime: formInfo.datetime,
+            subject: formInfo.subject,
             request: formInfo.request,
-            toEmail: formInfo.email
+            toEmail: 'support@lalunahoian.com',
+            replyEmail: formInfo.email
         }
 
         if(templateParams.email){
             emailjs.send(serviceID, templateID, templateParams, publicKey)
             .then((response) => {
                 console.log('Email sent successfully!', response);
-            })
-            .catch((error) => {
-                console.error('Error sending email: ', error);
-            });
-        }
-        
-    }
-
-    
-    const sendEmailtoSpa = () => {
-        const serviceID = 'service_v6su3qq';
-        const templateID = 'template_za99pzb';
-        const publicKey = 'zDKZrYnWzPbV1QAH7';
-
-        const templateParams = {
-            packageDetail: packageDetail.title,
-            time: packageDetail.time,
-            name: formInfo.firstName + ' ' + formInfo.lastName,
-            email: formInfo.email,
-            datetime: formInfo.datetime,
-            request: formInfo.request,
-            toEmail: 'support@lalunahoian.com',
-            replyEmail: formInfo.email
-        }
-
-        if (templateParams.email){
-            emailjs.send(serviceID, templateID, templateParams, publicKey)
-            .then((response) => {
-                console.log('Email sent successfully!', response);
                 setTimeout(() => {
                     setIsLoading(false)
-                }, 2000);;
+                }, 2000);
             })
             .catch((error) => {
                 console.error('Error sending email: ', error);
             });
         }
-
-        
+       
     }
+
 
     useEffect(() => {
         if (Object.keys(formErrors).length === 0){
@@ -101,9 +66,8 @@ function Booking()  {
             }
             setIsSubmitted((prev => !prev));
             setIsLoading(true);
-            sendEmailtoClient();
             sendEmailtoSpa();
-            setFormInfo({firstName: "", lastName: "", email: "", datetime: "", request: ""});
+            setFormInfo({firstName: "", lastName: "", email: "", subject: "", request: ""});
         }
     }
     , [formErrors]);
@@ -122,35 +86,29 @@ function Booking()  {
         } else if (!regex.test(values.email)){
             errors.email = "This is not a valid email";
         }
-        if (!values.datetime) {
-            errors.datetime = "Date time is required";
+        if (!values.subject) {
+            errors.subject = "Subject is required";
+        }
+        if (!values.request) {
+            errors.request = "Message time is required";
         }
         return errors
     }
-
-    let inputPropsforDate = {
-        placeholder: 'mm/dd/yyyy',
-        className: "datetime"
-    };
-
-    let inputPropsforTime = {
-        placeholder: 'hh:mm:ss',
-        // className: "datetime"
-    };
 
     return (
         <div>
             {
             !isSubmitted &&
-            <div className="container-booking">
-                <div className="header-booking">
-                    <h3>COMPLETE YOUR BOOKING</h3>
-                    <h2>{packageDetail.title}</h2>
-                    <div>Time: {packageDetail.time}</div>
-                    <div>{packageDetail.price}</div>
-                    <div>(No payment required at this time)</div>
+            <div className="container-booking-contact">
+                
+                <div className="contact-address">
+                    <a href="/" className='logo'><img className='logo' src={Logo}/></a>
+                    <h1 className="contact-title">Contact Us</h1>
+                    <h3 className="contact-title">Hotline: + 84 2353 666 678</h3>
+                    <h3 className="contact-title">info@lalunahoian.com</h3>
+                    <h3 className="contact-title">12 Nguyen Du, Minh An, Hoi An, Vietnam</h3>
                 </div>
-             
+                
                 <div className="calender-booking">
                
                     <form onSubmit={handleSubmit}>
@@ -194,25 +152,18 @@ function Booking()  {
                         </div>
 
                         <div className="input-field">
-                            <label>*Pick a date:</label>
-                            <div className="error">{formErrors.datetime}</div>
-                            <Datetime type="text" name="date"  timeFormat={false} inputProps={ inputPropsforDate }
-                             value={formInfo.date} onChange={handleTimeChange}
-                            />
-                            
+                            <label>*Subject:</label>
+                            <div className="error">{formErrors.subject}</div>
+                            <input type="text"
+                                name="subject"
+                                value={formInfo.subject}
+                                onChange={handleChange}>
+                            </input>
                         </div>
 
                         <div className="input-field">
-                            <label>*Pick a time:</label>
-                            <div className="error">{formErrors.datetime}</div>
-                            <Datetime type="text" name="time" dateFormat={false} inputProps={inputPropsforTime}
-                             value={formInfo.time}   onChange={handleTimeChange}/>
-                             
-                        </div>
-
-
-                        <div className="input-field">
-                            <label>Additional Requests:</label>
+                            <label>*Message:</label>
+                            <div className="error">{formErrors.request}</div>
                             <textarea type="text"
                                 name="request"
                                 value={formInfo.request}
@@ -241,13 +192,11 @@ function Booking()  {
                 isSubmitted && !isLoading &&
                 <div className="container-booking">
                     <div className="header-booking">
-                        <h3>An Email Has Been Sent to You!</h3>
-                        <div>Package Name: {packageDetail.title}</div>
-                        <div>Length: {packageDetail.time}</div>
+                        <h3>An Email Has Been Sent to Our Team!</h3>
                         <div>Name: {formInfo.firstName} {formInfo.lastName}</div>
                         <div>Email: {formInfo.email}</div>
-                        <div>Time: {formInfo.datetime} (GMT+7)</div>
-                        <div>Addtional Request: {formInfo.request}</div>
+                        <div>Subject: {formInfo.subject}</div>
+                        <div>Message: {formInfo.request}</div>
                         <a href="/">    
                             <button className="homepage">BACK TO HOMEPAGE</button>
                         </a>
@@ -259,4 +208,4 @@ function Booking()  {
     )
 }
 
-export default Booking
+export default Contact

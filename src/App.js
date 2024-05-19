@@ -8,6 +8,7 @@ import Feedback from './component/Feedback/Feedback';
 import Training from './component/Training/Training';
 import Footer from './component/Footer/Footer';
 import Booking from './component/Booking/Booking';
+import Contact from './component/Contact/Contact';
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
           </Routes>
           <Routes>
             <Route exact path="/training" element={<Training/>}/>
+          </Routes>
+          <Routes>
+            <Route exact path="/contact" element={<Contact/>}/>
           </Routes>
           <Routes>
             <Route exact path="/booking/:packageId/:packageDetailId/:packageName" element={<Booking/>}/>
