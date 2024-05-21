@@ -12,6 +12,7 @@ function Contact()  {
     
     const initialValues = {firstName: "", lastName: "", email: "", subject: "", request: ""} 
     const [formInfo, setFormInfo] = useState(initialValues);
+    const [tempFormInfo, setTempFormInfo] = useState(initialValues);
     let [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -193,10 +194,10 @@ function Contact()  {
                 <div className="container-booking">
                     <div className="header-booking">
                         <h3>An Email Has Been Sent to Our Team!</h3>
-                        <div>Name: {formInfo.firstName} {formInfo.lastName}</div>
-                        <div>Email: {formInfo.email}</div>
-                        <div>Subject: {formInfo.subject}</div>
-                        <div>Message: {formInfo.request}</div>
+                        <div>Name: {tempFormInfo.firstName} {tempFormInfo.lastName}</div>
+                        <div>Email: {tempFormInfo.email}</div>
+                        <div>Subject: {tempFormInfo.subject}</div>
+                        <div>Message: {tempFormInfo.request}</div>
                         <a href="/">    
                             <button className="homepage">BACK TO HOMEPAGE</button>
                         </a>

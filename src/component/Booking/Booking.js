@@ -17,6 +17,7 @@ function Booking()  {
     
     const initialValues = {firstName: "", lastName: "", email: "", datetime: "", request: ""} 
     const [formInfo, setFormInfo] = useState(initialValues);
+    const [tempFormInfo, setTempFormInfo] = useState(initialValues);
     let [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -99,6 +100,7 @@ function Booking()  {
             if (!formInfo.request){
                 setFormInfo({ ...formInfo, request: "N/A"})
             }
+            setTempFormInfo(formInfo);
             setIsSubmitted((prev => !prev));
             setIsLoading(true);
             sendEmailtoClient();
@@ -244,10 +246,10 @@ function Booking()  {
                         <h3>An Email Has Been Sent to You!</h3>
                         <div>Package Name: {packageDetail.title}</div>
                         <div>Length: {packageDetail.time}</div>
-                        <div>Name: {formInfo.firstName} {formInfo.lastName}</div>
-                        <div>Email: {formInfo.email}</div>
-                        <div>Time: {formInfo.datetime} (GMT+7)</div>
-                        <div>Addtional Request: {formInfo.request}</div>
+                        <div>Name: {tempFormInfo.firstName} {formInfo.lastName}</div>
+                        <div>Email: {tempFormInfo.email}</div>
+                        <div>Time: {tempFormInfo.datetime} (GMT+7)</div>
+                        <div>Addtional Request: {tempFormInfo.request}</div>
                         <a href="/">    
                             <button className="homepage">BACK TO HOMEPAGE</button>
                         </a>
