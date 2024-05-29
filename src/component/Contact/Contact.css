@@ -134,12 +134,18 @@ form {
     flex: 0 0 50%;
  }
 
-@media(max-width: 969px){
+@media(max-width: 1200px){
     .container-booking-contact
     {
         width: 100%;
         flex-direction: column;
-
+        
+    }
+    .container-booking
+    {
+        width: 100%;
+        /* flex-direction: column; */
+        
     }
     .calender-booking
     {

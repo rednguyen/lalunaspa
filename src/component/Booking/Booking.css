@@ -111,7 +111,7 @@ form {
     font-family:'Times New Roman', Times, serif;
  }
 
-@media(max-width: 969px){
+@media(max-width: 1200nfpx){
     .container-booking
     {
         width: 100%;
