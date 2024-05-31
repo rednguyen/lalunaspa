@@ -8,7 +8,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     env:
-      BUCKET: lunaspahoian.com
+      BUCKET: www.lunaspahoian.com
       DIST: build
       REGION: us-east-1
       DIST_ID: E2TYTL06BHDKM
